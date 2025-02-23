@@ -1,0 +1,146 @@
+
+.container{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 20px;
+}
+
+select{
+  color: #aaa;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.logo{
+  width: 60px;
+  margin: 60px 0;
+}
+
+form{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form_input_field{
+  position: relative;
+  border: 1px solid var(--input-border-normal);
+  background: var(--input-bg);
+  padding: 1rem;
+  padding-bottom: 0.2rem;
+  width: 100%;
+  outline: none;
+  border-radius: 10px;
+}
+
+.form_input_field input{
+  background: transparent;
+  border: none;
+  outline: none;
+  width: 100%;
+  color: white;
+  height: 20px;
+  padding: 19px 0;
+}
+
+.form_input_field input::placeholder{
+  color: transparent;
+}
+
+.form_input_field .show-passwd{
+  position: absolute;
+  top: 55%;
+  right: 1rem;
+  transform: translateY(-50%);
+  width: 30px;
+  cursor: pointer;
+}
+
+.form_input_field input:not(:placeholder-shown) ~ label,
+.form_input_field input:focus ~ label {
+  top: 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.7);
+}
+
+.form_input_field label{
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 1rem;
+  transform: translateY(-50%);
+  font-weight: 500;
+  pointer-events: none;
+  color: var(--input-border-hover);
+}
+
+.form_input_field input:focus ~ label{
+  top: 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.7);
+}
+
+.form_input_field:focus-within{
+  border-color: rgba(255,255,255,0.7);
+}
+
+form button[type="submit"]{
+  background: var(--login-btn-bg);
+  color: white;
+  padding: 1rem 0;
+  width: 100%;
+  border-radius: 40px;
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+form a{
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+}
+
+.create-account-btn{
+  background: transparent;
+  color: var(--login-btn-bg);
+  padding: 1rem 0;
+  width: calc(100% - 40px);
+  border-radius: 40px;
+  font-size: 1rem;
+  font-weight: 500;
+  border: 2px solid var(--login-btn-bg);
+  outline: none;
+  cursor: pointer;
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.meta-logo{
+  width: 85px;
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+}
+
+@media (max-width: 576px) {
+  .form_input_field label{
+    font-size: 0.9rem;
+  }
+}
