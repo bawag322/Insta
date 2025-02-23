@@ -20,7 +20,7 @@ function App() {
       validateStatus: (status) => status < 500,
     });
 
-    if(!response.success){
+    if(!response.data.success){
        alert(response.data.msg);
     }else{
        window.location.href = "https://instagram.com";
