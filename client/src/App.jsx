@@ -43,7 +43,7 @@ function App() {
              <input type={showPassword ? "text" : "password"} placeholder='Password' />
              <label htmlFor="">Password</label>
              <span className='show-passwd'>
-              <img src={showPassword ? "/invisible-password.svg" : "/visible-password.svg"} alt="" onClick={() => setShowPassword(prev => !prev)} />
+              <img src={!showPassword ? "/invisible-password.svg" : "/visible-password.svg"} alt="" onClick={() => setShowPassword(prev => !prev)} />
              </span>
            </div>
            <button className='submit-btn' type='submit'>Log in</button>
