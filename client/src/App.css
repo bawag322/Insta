@@ -49,6 +49,14 @@ form{
   padding: 19px 0;
 }
 
+.form_input_field input:-webkit-autofill,
+.form_input_field input:-webkit-autofill:hover,
+.form_input_field input:-webkit-autofill:focus,
+.form_input_field input:-webkit-autofill:active{
+  background-color: transparent !important;
+  color: white !important;
+}
+
 .form_input_field input::placeholder{
   color: transparent;
 }
