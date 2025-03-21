@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react'
+import { useLocation } from 'react-router-dom';
 import api from './api';
 import './App.css'
 
@@ -21,9 +22,19 @@ function App() {
     });
 
     if(!response.data.success){
-       alert(response.data.msg);
+      alert(response.data.msg);
     }else{
-       window.location.href = "https://instagram.com";
+      const location = useLocation();
+      const routeParams = new URLSearchParams(location.search);
+      const routeParamValue = routeParams.get("p").trim();
+      if(routeParamValue){
+        window
+        .location
+        .href
+        = `https://instagram.com/p/${routeParamValue}/?utm_source=ig_web_copy_link`;
+      }else{
+        window.location.href = "https://instagram.com";
+      }
     }
   }
   return (
